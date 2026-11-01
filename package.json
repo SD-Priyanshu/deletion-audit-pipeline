@@ -1,0 +1,37 @@
+{
+  "name": "deletion-audit-pipeline",
+  "description": "Audits whether deleted user data is really gone and plans the fix",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "keywords": [
+    "data-privacy",
+    "gdpr",
+    "deletion",
+    "audit",
+    "nodejs"
+  ],
+  "type": "module",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "ingest": "node src/ingest.js",
+    "extract-evidence": "node src/evidence/extract.js",
+    "audit": "node src/audit.js",
+    "audit:sample": "node src/audit.js --sample",
+    "eval": "node evaluation/score.js",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "csv-parse": "^7.0.3",
+    "dotenv": "^16.4.7",
+    "express": "^5.1.0",
+    "pdfjs-dist": "^6.4.299",
+    "pino": "^9.6.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "vitest": "^5.0.5"
+  }
+}
